@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" sizes="64x64" href="favicon-16x16.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,900" rel="stylesheet">
+    <title>Commands Quick Guide | Luis Perez</title>
+    <style>
+      html {overflow-y: scroll;}
+      body {color: #4B5A5A; font-family: "Roboto",Helvetica,Arial,sans-serif;}
+      header {position: relative;}
+      h1 {color: #183B3C; margin-bottom: 1rem; margin-top: 1rem; text-align: center;}
+      .quick-guide-box {clear: right;}
+      .card {border-radius: 2px; margin-bottom: .5rem;}
+      .card-body {background-color: #F7F7F7;}
+      .btn-primary {
+        background-color: transparent;
+      	border-color: #183B3C;
+      	border-radius: 2px;
+      	color: #183B3C;
+        font-weight: bold;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        }
+        .btn-primary:hover,
+        .btn-primary:not([disabled]):not(.disabled):active,
+        .btn-primary:focus {
+          background-color: #0f2a2b;
+          border-color: #0f2a2b;
+          box-shadow: 0 0 .3rem rgba(24,59,60,.9);
+          color: #fff;
+        }
+        .btn-primary:not([disabled]):not(.disabled):active:focus {box-shadow: 0 0 .3rem rgba(24,59,60,.9);}
+        section + section {margin-top: .5rem;}
+        small {margin-left: 5px; margin-right: 5px}
+        pre {margin-bottom: 0;}
+        .switch {
+          position: absolute;
+          display: inline-block;
+          width: 60px;
+          height: 26px;
+          margin-top: 1rem;
+          right: 0;
+          bottom: -1px;
+        }
+        .switch input {display:none;}
+        .switch .label {display: inline-block; font-size: .75rem; position: relative; left: 9px; top: -20px}
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #183B3C;
+          border: 1px solid #183B3C;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 20px;
+          width: 20px;
+          left: 3px;
+          bottom: 2px;
+          background-color: #fff;
+          transition: .4s;
+        }
+        input:checked + .slider {background-color: #183B3C;}
+        input:checked + .slider:before {transform: translateX(32px);}
+        .slider.round {border-radius: 30px;}
+        .slider.round:before {border-radius: 50%;}
+        /*dark theme color scheme*/
+        body.dark-theme {background-color: #101e26; color: #9CD7F7;}
+        body.dark-theme h1 {color: #9CD7F7;}
+        body.dark-theme pre {color: #9CD7F7;}
+        body.dark-theme .card-body {background-color: #061f2f;}
+        body.dark-theme .btn-primary {background-color: #404954; color: #9CD7F7;}
+        body.dark-theme .btn-primary:focus, body.dark-theme .btn-primary:active, body.dark-theme .btn-primary:hover {color: #fff; opacity: 0.8;}
+        body.dark-theme .btn-primary:not([disabled]):not(.disabled):active:focus {color: #fff; opacity: 0.8;}
+        body.dark-theme .slider {background-color: #344658; border-color: #192837;}
+        body.dark-theme .slider:before {background-color: #4fa1d0;}
+        /*card game css*/
+        div.col-2 {padding: 10px;}
+        div.card-container, div.card-value {border-radius: 5px; height: 150px;}
+        div.card-container {
+          background: repeating-linear-gradient(45deg, #17A2B8, #17A2B8 3px, #4AD5EB 3px, #4AD5EB 6px);
+          border: 8px #3B444B solid;
+        }
+        div.card-value {
+          background-color: #F2F3F4;
+          border: 1px #000 solid;
+          text-align: center;
+        }
+        div.card-value span {display: inline-block; padding: 62px 0;}
+        @media screen and (max-width: 768px) {
+          .switch {float: right; margin-top: 0; position: relative;}
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Most Used Commands</h1>
+        <label class="switch">
+          <span class="label">Theme</span>
+          <input type="checkbox" checked>
+          <span class="slider round"></span>
+        </label>
+      </header>
+      <div class="quick-guide-box" id="quick_guide">
+        <div class="card">
+          <div id="branches_heading">
+            <button class="btn btn-block btn-primary" data-toggle="collapse" data-target="#branches" aria-expanded="true" aria-controls="branches">
+              Branches
+            </button>
+          </div>
+          <div id="branches" class="collapse" aria-labelledby="branches_heading" data-parent="#quick_guide">
+            <div class="card-body">
+              <section>
+                <h3>New Branch</h3>
+                <code>git checkout -b ticket-1234</code><br>
+                <code>git push -u origin ticket-1234</code>
+              </section>
+
+              <section>
+                <h3>Pushing Updates</h3>
+                <code>git add.</code><br>
+                <code>git commit -m "etc #1234"</code> <small> or just </small> <code>git commit -am "etc #1234"</code><br>
+                <code>git push origin ticket-1234</code> <small> or just </small> <code>git push</code>
+              </section>
+
+              <section>
+                <h3>Updating & Feeding Branches</h3>
+                <code>git checkout develop</code><br>
+                <code>git pull</code><br>
+                <code>git checkout ticket-1234</code><br>
+                <code>git merge develop</code>
+              </section>
+
+              <section>
+                <h3>Delete Branches</h3>
+                <code>git branch -d {the_local_branch}</code> <small>(use -D instead to force deletion )</small><br>
+                <code>git push origin :{the_remote_branch}</code> <small>ex:(git push origin :ticket-1234)</small><br>
+                <code>git remote update origin --prune</code> <br>
+                <code>git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d</code> <small>delete local branches faster</small>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div id="git_heading">
+            <button class="btn btn-block btn-primary collapsed" data-toggle="collapse" data-target="#git_tips" aria-expanded="false" aria-controls="git_tips">
+              Git
+            </button>
+          </div>
+          <div id="git_tips" class="collapse" aria-labelledby="git_heading" data-parent="#quick_guide">
+            <div class="card-body">
+              <section>
+                <h3>Common Commands</h3>
+                <code>history</code> <small>shows history commands used</small><br>
+                <code>git clone {url}</code><br>
+                <code>git log -p --author=luisperez</code> <small>search commit by author</small><br>
+                <code>git diff {branch} -- "*.tpl"</code> <small>show only template file changes</small>
+              </section>
+
+              <section>
+                <h3>Tags</h3>
+                <code>git tag --list</code> <small>shows all tags</small><br>
+                <code>git show ###</code> <small>shows info of chosen tag</small>
+              </section>
+
+              <section>
+                <h3>Can't Access Branch</h3>
+                <code>git remote update</code><br>
+                <code>git fetch</code><br>
+                <code>git checkout --track origin/{BRANCH-NAME}</code><br>
+              </section>
+
+              <section>
+                <h3>Cherry Pick</h3>
+                you will need to get you sha commits and apply them in order from oldest to newest <br>
+                <code>git checkout {the branch}</code><br>
+                <code>git cherry-pick c90fd66</code> <small> complete sha per commit</small><br>
+                to reverse cherry-pick <br>
+                <code>git revert --strategy resolve [SHA]</code><br>
+              </section>
+
+              <section>
+                <h3>Check For Lang Changes</h3>
+                <code>git diff {branch} --name-only</code> <small> displays file name changes</small><br>
+                <code>git diff alpha full/file_path/for/lang.php</code> <small> exports all changes into a file</small><br>
+                This is a way to output changes by comparing branches <br>
+                <code>git diff {branch} > {name of file}.diff</code> <small>saves changes of current ticket</small><br>
+                <code>git diff hotfix-2016.12.07 > lang_changes/test.diff</code> <small> another example</small><br>
+                <code>git diff develop application/language/spanish/core_lang.php > spanish_core.diff</code> <small>checking differences per file</small><br>
+                <code>git diff develop --name-only *_lang.php</code> <small>shows only filtered file names</small><br>
+                <code>git diff develop..master > test.diff</code> <small>another way to compare two branches</small><br>
+                To use my lang_key_comparison script <br>
+                <code>./dev_ops/lang_key_comparison.sh</code> <br>
+                Follow the prompts from the script and the changes will be outputed <br>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div id="builds_heading">
+            <button class="btn btn-block btn-primary collapsed" data-toggle="collapse" data-target="#builds_tips" aria-expanded="false" aria-controls="builds_tips">
+              Docker
+            </button>
+          </div>
+          <div id="builds_tips" class="collapse" aria-labelledby="builds_heading" data-parent="#quick_guide">
+            <div class="card-body">
+              <section>
+                <h3>Docker Commands</h3>
+                <code>docker stop $(docker ps -a -q)</code> <br>
+                <small> than </small> <code>docker rm $(docker ps -a -q)</code> <small>kills all containers</small><br>
+                <code>docker ps</code> <small>shows list of current images</small> <br>
+                <code>docker-compose build</code> <small> Builds your images</small><br>
+                <code>docker-compose up</code> <small> Spins up your images</small><br>
+                <code>gulp</code> <small>compiles all CSS & JS</small> <code> gulp watch</code> <small>watches for changes very well</small> <br>
+                <a href='https://docs.docker.com/compose/reference/' target="_blank">Complete list of docker-compose commands</a>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div id="analytics_heading">
+            <button class="btn btn-block btn-primary collapsed" data-toggle="collapse" data-target="#analytics_tips" aria-expanded="false" aria-controls="analytics_tips">
+              Google Analytics
+            </button>
+          </div>
+          <div id="analytics_tips" class="collapse" aria-labelledby="analytics_heading" data-parent="#quick_guide">
+            <div class="card-body">
+              <section>
+                <h3>Steps</h3>
+                <ol>
+                  <li>Log into <a href="https://analytics.google.com/analytics">Google Analytics</a></li>
+                  <li>Click on Admin</li>
+                  <li>Custom Definitions</li>
+                  <li>Custom Dimensions</li>
+                  <li>New Custom Dimension</li>
+                  <li>Set Scope to Product</li>
+                </ol>
+                <h3>GA Code</h3>
+                <code></code> <br>
+                <small></small> <code></code> <small></small><br>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div id="codeception_heading">
+            <button class="btn btn-block btn-primary collapsed" data-toggle="collapse" data-target="#codeception_tips" aria-expanded="false" aria-controls="codeception_tips">
+              Acceptance Testing
+            </button>
+          </div>
+          <div id="codeception_tips" class="collapse" aria-labelledby="codeception_heading" data-parent="#quick_guide">
+            <div class="card-body">
+              <section>
+                <h3>Running Codeception</h3>
+                <code>./runCodeception.sh tests/acceptance</code> <small> runs all tests in this folder</small><br>
+                <code>./runCodeception.sh tests/acceptance/MyPlanCest.php -f --html --steps</code><small> runs specific file with options</small><br>
+                <code>./runCodeception.sh tests/acceptance/NavCest.php --debug</code> <small> more examples of options</small><br>
+                <code>./runCodeception.sh tests/acceptance/HomepageCest.php::seeLoginForm --steps</code> <small> runs a specific test</small><br>
+                <code>docker-compose run web vendor/bin/codecept build</code> <small> rebuilds codeception</small><br>
+                <code>cat runCodeception.sh</code> <small> shows you codeception file path</small>
+              </section>
+
+              <section>
+                <h3>Running Cypress</h3>
+                <code>npm run cypress-ui</code> <small> run the package json commands</small><br>
+                <code>npm run cypress-headless </code> <small> another command</small><br>
+                <code></code> <small> </small><br>
+                <code></code> <small> </small><br>
+                <code></code> <small> </small><br>
+                <code></code> <small> </small>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div id="useful_heading">
+            <button class="btn btn-block btn-primary collapsed" data-toggle="collapse" data-target="#useful_tips" aria-expanded="false" aria-controls="useful_tips">
+              Useful Tools
+            </button>
+          </div>
+          <div id="useful_tips" class="collapse" aria-labelledby="useful_heading" data-parent="#quick_guide">
+            <div class="card-body">
+              <section>
+                <h3>Terminal Commands</h3>
+                <code>npm install {param}</code> <small> installs many depedancies, optional parameter to choose a specific depedancy</small><br>
+                <code>npm list -g</code> <small>shows you the full list of installed depedancies</small> <br>
+                <code> </code> <small></small> <br>
+                <code>node -v</code> <small> shows current version of node</small><br>
+                <code>pa11y --environment</code> <small>shows current version of depedancies</small> <br>
+                <code>gulp --silent</code><small> stops gulp from running</small><br>
+                <code>pwd</code> <small> display current working directory</small> <code>ls</code> <small>list all files and folders in directory</small><br>
+                <code>which {param}</code> <small> tells you directory of chosen file name</small><br>
+                <code>exec(param, $return)</code> <small>executes a command in php to the terminal, can test by manually running output in terminal</small><br>
+                <code>file_put_contents ( 'luis.txt' , '$key :' . $key . "\n", FILE_APPEND);</code> <small> php command to log output, better than var_dump</small><br>
+                <code>tail -f luis.txt</code> <small> continually reads a log file in the terminal</small>
+              </section>
+
+              <section>
+                <h3>Smarty Cache</h3>
+                <code>C:\code\web.mod_portal\application\cache\smarty\compiled</code> <small>delete everything in this folder to clear cache</small>
+              </section>
+
+              <section>
+                <h3>Non Ascii Characters</h3>
+                <code>[^\x00-\x7F]+</code> <small>can help identify corrupted characters in your IDE via search</small>
+              </section>
+
+              <section>
+                <h3>Stuck Files</h3>
+                <code>cmd /c dir /x</code> <small>displays file short names which is like an ID</small> <br>
+                <code>del short_name</code> <small>this will delete any stuck file via a terminal</small>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div id="snippets_heading">
+            <button class="btn btn-block btn-primary collapsed" data-toggle="collapse" data-target="#snippets_tips" aria-expanded="false" aria-controls="snippets_tips">
+              Code Snippets
+            </button>
+          </div>
+          <div id="snippets_tips" class="collapse" aria-labelledby="snippets_heading" data-parent="#quick_guide">
+            <div class="card-body">
+              <section>
+                <h3>Code</h3>
+                <code>{if $smarty.const.FROM_INTERNAL_IP || $ENVIRONMENT != "production"}</code> <small> php check for not in production</small><br>
+                <code>window.location.hash = '#blah';</code><small> javascipt sets focus on non natural elements</small><br>
+                <code>window.location.hash = jQuery(this).data('target-element');</code> <small>javascipt same as above</small> <br>
+                <code>@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {}</code> <small> css media query for IE 11</small><br>
+                <code>and -> &&  |  or -> ||  |  xor -> xor</code> <small> php logical operators no other symbols xor exist</small>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div id="php_heading">
+            <button class="btn btn-block btn-primary collapsed" data-toggle="collapse" data-target="#php_tips" aria-expanded="false" aria-controls="php_tips">
+              PHP
+            </button>
+          </div>
+          <div id="php_tips" class="collapse" aria-labelledby="php_heading" data-parent="#quick_guide">
+            <div class="card-body">
+              <section>
+                <h3>PHP Tips</h3>
+                <code>$this->add_msg($this->lang->line('core_ftp_upload_success_msg') . $this->lang->line('core_ftp_upload_error_msg') . $_FILES['ftp_upload']['name'], 'success');</code> <small>concatenate longer sys messages</small><br>
+                <code>?XDEBUG_SESSION_START=PHPSTORM</code> <small>Turn Debugger on</small>
+              </section>
+
+              <section>
+                <h3>Sanitze URLs </h3>
+                <code>$url = filter_var($url, FILTER_SANITIZE_URL);</code> <small></small> <br>
+                <samp>$str = "&lt;h2&gt;Hello WorldÆØÅ!&lt;/h2&gt;";</samp> <br>
+                <code>$newstr = filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);</code> <small> removes all HTML tags</small> <br>
+                <code>echo $newstr;</code> <small></small>
+              </section>
+
+              <section>
+                <h3>Print Arrays </h3>
+                <code>{$dash_modules|print_r}</code><small> or </small><code>{$dash_modules[1].data.process_steps|print_r}</code> <small>for use in template</small> <br>
+                <code>var_dump($dash_modules)</code> <small>for use in php functions</small>
+              </section>
+              <section>
+                <h3>Toggle Error Reporting </h3>
+                <pre><code>
+  //httpdocs/index.php change error_reporting to zero
+  if (defined('ENVIRONMENT'))
+    {
+      case 'development':
+      case 'testing':
+          error_reporting(E_ALL & ~E_NOTICE);
+          break;
+      case 'internal':
+      error_reporting(0);+
+    }</code></pre>
+              </section>
+              <section>
+                <h3>Increase Memory Limit </h3>
+                <small>Only use when memory exceeds limit and do not commit the change</small><br>
+                <small>Go to core/ISS_Controller.php/build_view function</small><br>
+                <code>Line 328 if($mem_final_usage < 1000000)</code><br>
+                <small>Increase the amount in the if check above</small>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div id="deprecated_heading">
+            <button class="btn btn-block btn-primary collapsed" data-toggle="collapse" data-target="#deprecated_tips" aria-expanded="false" aria-controls="deprecated_tips">
+              Deprecated
+            </button>
+          </div>
+          <div id="deprecated_tips" class="collapse" aria-labelledby="deprecated_heading" data-parent="#quick_guide">
+            <div class="card-body">
+              <section>
+                <h3>Vagrant Commands</h3>
+                <code>vagrant halt</code> <br>
+                <code>vagrant up</code> <br>
+                <code>vagrant provision</code> <br>
+                <code>vagrant ssh</code> <br>
+                <code>sudo service httpd start</code> <small> then </small> <code>exit</code><br>
+                <code>./dev_ops/dotfiles/build-gulp.sh</code> <small>fixes gulp build on vagrant setup</small>
+              </section>
+
+              <section>
+                <h3>PHPED</h3>
+                <code>hide under Project-> Project Properties-> node_modules</code><small>PHPED node issues solution</small>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="javasciptTest" id="test">
+        <h1>Welcome to this Exciting Memory Game</h1>
+        <p>Flip any card and try to match the cards. *This is a work in progress does not work yet</p>
+        <div class="row">
+          <!-- where cards are created -->
+        </div>
+      </div>
+    </div>
+    <!-- JAVASCRIPT files -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function() {
+        if ($('input[type=checkbox]').is(':checked')) {
+          $('body').addClass('dark-theme');
+        }
+        $('input[type=checkbox]').change(function() {
+          if ($('input[type=checkbox]').is(':checked')) {
+            $('body').addClass('dark-theme');
+          } else {
+            $('body').removeClass('dark-theme');
+          }
+        });
+        /*card game js*/
+        let cardLayout = {
+          column: 6,
+          row: 6
+        };
+        let memoryValue = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15];
+        let testOne = 0;
+        let turns = 0;
+		let doesItMatch = [];
+
+        function startLayout(column, row) {
+          for (outer = 0; outer < column; outer++){
+            for (inner = 0; inner < row; inner++){
+              testOne++;
+              if (testOne == 6){testOne = 0;}
+              $('.row').append(
+                "<div class='col-2' id=" + outer + inner + ">"+
+                  "<div class='card-container'></div>"+
+                  "<div class='card-value' data-test="+ testOne +"><span>" + testOne + "</span>"+
+                "</div></div>"
+              );
+            }
+          }
+        }
+        startLayout(cardLayout.column, cardLayout.row);
+		$('.card-value').hide();
+        $('.col-2').click(function() {
+          let selectedCard = $(this).attr('id');
+		  let checkValue = $(this).children('.card-value').data('test');
+		  doesItMatch.push(checkValue);
+		  console.log(doesItMatch);
+          turns++;
+		  
+		  $('#' + selectedCard + ' .card-container').toggle();
+          $('#' + selectedCard + ' .card-value').toggle();
+		  
+          if (turns == 2) {
+			if (doesItMatch[0] === doesItMatch[1]){
+				$('[data-test="'+checkValue+'"] span').text('MATCH');
+				$('[data-test="'+checkValue+'"]').removeClass('.card-value');
+			} else {
+				$('.card-container').show();
+				$('.card-value').hide();
+			}
+            turns = 0;
+			doesItMatch= [];
+          }
+
+        })
+      });
+    </script>
+  </body>
+</html>
