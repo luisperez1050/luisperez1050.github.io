@@ -280,16 +280,17 @@
               <section>
                 <h3>Toggle Error Reporting </h3>
                 <pre><code>
-  //httpdocs/index.php change error_reporting to zero
-  if (defined('ENVIRONMENT'))
-    {
-      case 'development':
-      case 'testing':
-          error_reporting(E_ALL & ~E_NOTICE);
-          break;
-      case 'internal':
-      error_reporting(0);+
-    }</code></pre>
+                  //httpdocs/index.php change error_reporting to zero
+                  if (defined('ENVIRONMENT'))
+                    {
+                      case 'development':
+                      case 'testing':
+                          error_reporting(E_ALL & ~E_NOTICE);
+                          break;
+                      case 'internal':
+                      error_reporting(0);+
+                    }
+                </code></pre>
               </section>
               <section>
                 <h3>Increase Memory Limit </h3>
@@ -329,6 +330,13 @@
       </div>
       <div class="javasciptTest" id="test">
         <h1>Welcome to this Exciting Memory Game</h1>
+        <p>Todo: </p>
+        <ul>
+          <li>add timer</li>
+          <li>add navigation</li>
+          <li>make numbers bigger</li>
+          <li>count how many turns</li>
+        </ul>
         <p>Flip any card and try to match the cards. *This is a work in progress does not work yet</p>
         <div class="row">
           <!-- where cards are created -->
