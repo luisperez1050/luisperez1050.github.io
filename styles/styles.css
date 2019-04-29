@@ -1,18 +1,18 @@
 html {overflow-y: scroll;}
 body {color: #4B5A5A; font-family: "Roboto",Helvetica,Arial,sans-serif;}
-header {position: relative;}
+.title {position: relative;}
 h1 {color: #183B3C; margin-bottom: 1rem; margin-top: 1rem; text-align: center;}
 .quick-guide-box {clear: right;}
 .card {border-radius: 2px; margin-bottom: .5rem;}
 .card-body {background-color: #F7F7F7;}
 .btn-primary {
-background-color: transparent;
-border-color: #183B3C;
-border-radius: 2px;
-color: #183B3C;
-font-weight: bold;
-letter-spacing: 4px;
-text-transform: uppercase;
+	background-color: transparent;
+	border-color: #183B3C;
+	border-radius: 2px;
+	color: #183B3C;
+	font-weight: bold;
+	letter-spacing: 4px;
+	text-transform: uppercase;
 }
 .btn-primary:hover,
 .btn-primary:not([disabled]):not(.disabled):active,
@@ -84,8 +84,11 @@ div.card-value {
 	background-color: #F2F3F4;
 	border: 1px #000 solid;
 	text-align: center;
+	font-size: 7rem;
+	color: black;
+	line-height: 1.4;
 }
-div.card-value span {display: inline-block; padding: 62px 0;}
+div.card-value span {display: inline-block;}
 @media screen and (max-width: 768px) {
 	.switch {float: right; margin-top: 0; position: relative;}
 }
