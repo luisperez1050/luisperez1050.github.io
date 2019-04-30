@@ -73,6 +73,7 @@ body.dark-theme .btn-primary:focus, body.dark-theme .btn-primary:active, body.da
 body.dark-theme .btn-primary:not([disabled]):not(.disabled):active:focus {color: #fff; opacity: 0.8;}
 body.dark-theme .slider {background-color: #344658; border-color: #192837;}
 body.dark-theme .slider:before {background-color: #4fa1d0;}
+body.dark-theme div.timer, body.dark-theme div.card-flips {color: #9CD7F7;}
 /*card game css*/
 div.col-2 {padding: 10px;}
 div.card-container, div.card-value, div.card-match {border-radius: 5px; height: 150px;}
@@ -85,7 +86,7 @@ div.card-value, div.card-match {
 	border: 1px #000 solid;
 	text-align: center;
 	font-size: 7rem;
-	color: black;
+	color: #183B3C;
 	line-height: 1.4;
 }
 div.card-value span {display: inline-block;}
@@ -93,6 +94,12 @@ div.card-match span {
 	display: block;
 	font-size: 3rem;
 	margin-top: 40px;
+}
+div.timer, div.card-flips {
+	color: #183B3C;
+	display: inline-block;
+	font-size: 2rem;
+	margin-right: 40px;
 }
 @media screen and (max-width: 768px) {
 	.switch {float: right; margin-top: 0; position: relative;}
