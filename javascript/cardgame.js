@@ -37,6 +37,7 @@ $(document).ready(function() {
 		if (turns == 2) {
 			if (doesItMatch[0] === doesItMatch[1]){
 				$('[data-test="'+checkValue+'"] span').text('MATCH');
+				$('[data-test="'+checkValue+'"] span').addClass('match');
 				$('[data-test="'+checkValue+'"]').removeClass('.card-value');
 			} else {
 				$('.card-container').show();

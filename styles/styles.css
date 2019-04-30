@@ -89,6 +89,11 @@ div.card-value {
 	line-height: 1.4;
 }
 div.card-value span {display: inline-block;}
+div.card-value span.match {
+	display: block;
+	font-size: 3rem;
+	margin-top: 40px;
+}
 @media screen and (max-width: 768px) {
 	.switch {float: right; margin-top: 0; position: relative;}
 }
