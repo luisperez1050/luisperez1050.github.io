@@ -75,12 +75,12 @@ body.dark-theme .slider {background-color: #344658; border-color: #192837;}
 body.dark-theme .slider:before {background-color: #4fa1d0;}
 /*card game css*/
 div.col-2 {padding: 10px;}
-div.card-container, div.card-value {border-radius: 5px; height: 150px;}
+div.card-container, div.card-value, div.card-match {border-radius: 5px; height: 150px;}
 div.card-container {
 	background: repeating-linear-gradient(45deg, #17A2B8, #17A2B8 3px, #4AD5EB 3px, #4AD5EB 6px);
 	border: 8px #3B444B solid;
 }
-div.card-value {
+div.card-value, div.card-match {
 	background-color: #F2F3F4;
 	border: 1px #000 solid;
 	text-align: center;
@@ -89,7 +89,7 @@ div.card-value {
 	line-height: 1.4;
 }
 div.card-value span {display: inline-block;}
-div.card-value span.match {
+div.card-match span {
 	display: block;
 	font-size: 3rem;
 	margin-top: 40px;

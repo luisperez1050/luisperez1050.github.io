@@ -31,14 +31,19 @@ $(document).ready(function() {
 		console.log(doesItMatch);
 		turns++;
 
+		// idea use check box to determine if selected or not
+		
 		$('#' + selectedCard + ' .card-container').toggle();
+		$('#' + selectedCard + ' .card-container').addClass('selected');
 		$('#' + selectedCard + ' .card-value').toggle();
 
 		if (turns == 2) {
 			if (doesItMatch[0] === doesItMatch[1]){
 				$('[data-test="'+checkValue+'"] span').text('MATCH');
-				$('[data-test="'+checkValue+'"] span').addClass('match');
-				$('[data-test="'+checkValue+'"]').removeClass('.card-value');
+				$('[data-test="'+checkValue+'"]').addClass('card-match');
+				$('[data-test="'+checkValue+'"]').removeClass('card-value');
+				$('div.selected').remove();
+				
 			} else {
 				$('.card-container').show();
 				$('.card-value').hide();
