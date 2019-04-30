@@ -89,6 +89,9 @@ body.dark-theme .card-body {background-color: #061f2f;}
 body.dark-theme .btn-primary {background-color: #404954; color: #9CD7F7;}
 body.dark-theme .btn-primary:focus, body.dark-theme .btn-primary:active, body.dark-theme .btn-primary:hover {color: #fff; opacity: 0.8;}
 body.dark-theme .btn-primary:not([disabled]):not(.disabled):active:focus {color: #fff; opacity: 0.8;}
+body.dark-theme .btn-danger {background-color: #c82333; color: #9CD7F7;}
+body.dark-theme .btn-danger:focus, body.dark-theme .btn-danger:active, body.dark-theme .btn-danger:hover {color: #fff; opacity: 0.8;}
+body.dark-theme .btn-danger:not([disabled]):not(.disabled):active:focus {color: #fff; opacity: 0.8;}
 body.dark-theme .slider {background-color: #344658; border-color: #192837;}
 body.dark-theme .slider:before {background-color: #4fa1d0;}
 body.dark-theme div.timer, body.dark-theme div.card-flips {color: #9CD7F7;}
