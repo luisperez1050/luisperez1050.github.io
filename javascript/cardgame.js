@@ -41,9 +41,22 @@ $(document).ready(function() {
 		$('#timer').text("Timer: " + minutes + ":" + leading_zero + seconds);
 	}
 	startLayout(cardLayout.column, cardLayout.row);
-	setInterval(timerIncrement, 1000);
+	
+	$(document).on('click', '#start', function() {
+		setInterval(timerIncrement, 1000);
+		$('.row').removeClass('disabled');
+	});
+	$(document).on('click', '#reset', function() {
+		seconds = 0;
+		minutes = 0;
+		tries = 0;
+		$('.row').html("");
+		startLayout(cardLayout.column, cardLayout.row);
+		$('.card-value').hide();
+	})
+	
 	$('.card-value').hide();
-	$('.col-2').click(function() {
+	$(document).on('click', '.col-2', function() {
 		let selectedCard = $(this).attr('id');
 		let checkValue = $(this).children('.card-value').data('test');
 		
