@@ -100,8 +100,8 @@ div.disabled {
 	cursor: not-allowed;
 	opacity: 0.2;
 }
-div.disabled div.col-2 {pointer-events: none}
-div.col-2 {padding: 10px;}
+div.disabled div.col-2 {pointer-events: none;}
+div.col-2 {padding: 10px; cursor: pointer;}
 div.buttons {
 	display: inline-block;
 	float: right;
