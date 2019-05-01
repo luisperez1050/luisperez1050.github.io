@@ -45,6 +45,7 @@ $(document).ready(function() {
 	$(document).on('click', '#start', function() {
 		setInterval(timerIncrement, 1000);
 		$('.row').removeClass('disabled');
+		$(this).prop('disabled', true);
 	});
 	$(document).on('click', '#reset', function() {
 		seconds = 0;
