@@ -53,10 +53,13 @@ $(document).ready(function() {
 		tries = 0;
 		$('.row').html("");
 		startLayout(cardLayout.column, cardLayout.row);
-		$('.card-value').hide();
+		$('.card-value').hide("slow");
+		let start = document.querySelector('#start');
+		start.style.display = 'none';
+		// $('#start').hide();
 	})
 	
-	$('.card-value').hide();
+	$('.card-value').hide(1000);
 	$(document).on('click', '.col-2', function() {
 		let selectedCard = $(this).attr('id');
 		let checkValue = $(this).children('.card-value').data('test');
@@ -67,9 +70,9 @@ $(document).ready(function() {
 
 		// idea use check box to determine if selected or not
 		
-		$('#' + selectedCard + ' .card-container').toggle();
+		$('#' + selectedCard + ' .card-container').toggle(1000);
 		$('#' + selectedCard + ' .card-container').addClass('selected');
-		$('#' + selectedCard + ' .card-value').toggle();
+		$('#' + selectedCard + ' .card-value').toggle(2000);
 
 		if (turns == 2) {
 			if (doesItMatch[0] === doesItMatch[1]){
@@ -79,8 +82,9 @@ $(document).ready(function() {
 				$('div.selected').remove();
 				
 			} else {
-				$('.card-container').show();
-				$('.card-value').hide();
+				$('.card-container').show(2000);
+				$('.card-value').hide(1000);
+				$('.card-container').removeClass('selected');
 			}
 			turns = 0;
 			doesItMatch= [];
