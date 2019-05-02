@@ -30,7 +30,26 @@ $(document).ready(function() {
 		  );
 		}
 	  }
+	  shuffle();
 	}
+	// borrowed from JS fiddle
+    function shuffle(){
+        $(".row").each(function(){
+            var divs = $(this).find('div.col-2');
+            for(var i = 0; i < divs.length; i++) $(divs[i]).remove();            
+            //the fisher yates algorithm, from http://stackoverflow.com/questions/2450954/how-to-randomize-a-javascript-array
+            var i = divs.length;
+            if ( i == 0 ) return false;
+            while ( --i ) {
+               var j = Math.floor( Math.random() * ( i + 1 ) );
+               var tempi = divs[i];
+               var tempj = divs[j];
+               divs[i] = tempj;
+               divs[j] = tempi;
+             }
+            for(var i = 0; i < divs.length; i++) $(divs[i]).appendTo(this);
+        });                    
+    }
 	function timerIncrement() {
 		let leading_zero = '0';
 		seconds++;
@@ -85,7 +104,7 @@ $(document).ready(function() {
 					$('div.selected').remove();
 					
 					if(points === 18){
-						$('#points').append(" <h2> You win Yay!</h2>");
+						$('#points').append(" <h2> You win Yay! Reset Game to Start Over</h2>");
 					}
 				}, 1200);
 				
