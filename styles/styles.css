@@ -144,4 +144,5 @@ div.timer, div.card-flips {
 }
 @media screen and (max-width: 768px) {
 	.switch {float: right; margin-top: 0; position: relative;}
+	div.card-match span {font-size: 2rem;}
 }
