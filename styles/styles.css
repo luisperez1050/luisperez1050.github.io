@@ -142,10 +142,6 @@ div.timer, div.card-flips {
 	font-size: 2rem;
 	margin-right: 40px;
 }
-#start {
-	transition: display 1s ease;
-	display: inline-block;
-}
 @media screen and (max-width: 768px) {
 	.switch {float: right; margin-top: 0; position: relative;}
 }
