@@ -35,7 +35,7 @@ $(document).ready(function() {
 	// borrowed from JS fiddle
     function shuffle(){
         $(".row").each(function(){
-            var divs = $(this).find('div.col-2');
+            var divs = $(this).find('div.col-md-2');
             for(var i = 0; i < divs.length; i++) $(divs[i]).remove();            
             //the fisher yates algorithm, from http://stackoverflow.com/questions/2450954/how-to-randomize-a-javascript-array
             var i = divs.length;
@@ -79,7 +79,7 @@ $(document).ready(function() {
 	})
 	
 	$('.card-value').hide();
-	$(document).on('click', '.col-2', function() {
+	$(document).on('click', '.col-md-2', function() {
 		let selectedCard = $(this).attr('id');
 		let checkValue = $(this).children('.card-value').data('test');
 		
@@ -92,7 +92,7 @@ $(document).ready(function() {
 		$('#' + selectedCard + ' .card-value').toggle();
 
 		if (turns == 2) {
-			$('.col-2').css('pointer-events', 'none');
+			$('.col-md-2').css('pointer-events', 'none');
 			if (doesItMatch[0] === doesItMatch[1]){
 				points++;
 				setTimeout(function() {
@@ -100,7 +100,7 @@ $(document).ready(function() {
 					$('.selected ~ [data-test="'+checkValue+'"] span').text('MATCH');
 					$('.selected ~ [data-test="'+checkValue+'"]').addClass('card-match');
 					$('.selected ~ [data-test="'+checkValue+'"]').removeClass('card-value');
-					$('.col-2').css('pointer-events', 'all');
+					$('.col-md-2').css('pointer-events', 'all');
 					$('div.selected').remove();
 					
 					if(points === 18){
@@ -113,7 +113,7 @@ $(document).ready(function() {
 					$('.card-container').show();
 					$('.card-value').hide();
 					$('.card-container').removeClass('selected');
-					$('.col-2').css('pointer-events', 'all');
+					$('.col-md-2').css('pointer-events', 'all');
 				}, 1200);
 			}
 			turns = 0;
