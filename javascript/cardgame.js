@@ -23,7 +23,7 @@ $(document).ready(function() {
 		  testOne++;
 		  if (testOne == 6){testOne = 0;}
 		  $('.row').append(
-			"<div class='col-md-2 col-sm-4' id=" + outer + inner + ">"+
+			"<div class='col-md-2 col-4' id=" + outer + inner + ">"+
 			  "<div class='card-container'></div>"+
 			  "<div class='card-value' data-test="+ testOne +"><span>" + testOne + "</span>"+
 			"</div></div>"
