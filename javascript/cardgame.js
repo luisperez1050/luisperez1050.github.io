@@ -64,19 +64,19 @@ $(document).ready(function() {
 		doesItMatch.push(checkValue);
 		console.log(doesItMatch);
 		turns++;
-
-		// idea use check box to determine if selected or not
 		
 		$('#' + selectedCard + ' .card-container').toggle();
 		$('#' + selectedCard + ' .card-container').addClass('selected');
 		$('#' + selectedCard + ' .card-value').toggle();
 
 		if (turns == 2) {
+			$('.col-2').css('pointer-events', 'none');
 			if (doesItMatch[0] === doesItMatch[1]){
 				setTimeout(function() {
 					$('.selected ~ [data-test="'+checkValue+'"] span').text('MATCH');
 					$('.selected ~ [data-test="'+checkValue+'"]').addClass('card-match');
 					$('.selected ~ [data-test="'+checkValue+'"]').removeClass('card-value');
+					$('.col-2').css('pointer-events', 'all');
 					$('div.selected').remove();
 				}, 1200);
 				
@@ -85,11 +85,13 @@ $(document).ready(function() {
 					$('.card-container').show();
 					$('.card-value').hide();
 					$('.card-container').removeClass('selected');
+					$('.col-2').css('pointer-events', 'all');
 				}, 1200);
 			}
 			turns = 0;
 			doesItMatch= [];
-			tries++;
+			t
+			ries++;
 		}
 		
 		$('#card_flips').text("Turns: " + tries);
