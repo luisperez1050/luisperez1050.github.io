@@ -9,6 +9,7 @@ $(document).ready(function() {
 	let tries = 0;
 	let seconds = 0;
 	let minutes = 0;
+	let points = 0;
 	
 	
 	let doesItMatch = [];
@@ -16,6 +17,7 @@ $(document).ready(function() {
 	function startLayout(column, row) {
 		$('#timer').text("Timer: 0:00");
 		$('#card_flips').text("Turns: 0");
+		$('#points').text("Points: 0");
 	  for (outer = 0; outer < column; outer++){
 		for (inner = 0; inner < row; inner++){
 		  testOne++;
@@ -51,6 +53,7 @@ $(document).ready(function() {
 		seconds = 0;
 		minutes = 0;
 		tries = 0;
+		points = 0;
 		$('.row').html("");
 		startLayout(cardLayout.column, cardLayout.row);
 		$('.card-value').hide();
@@ -72,12 +75,18 @@ $(document).ready(function() {
 		if (turns == 2) {
 			$('.col-2').css('pointer-events', 'none');
 			if (doesItMatch[0] === doesItMatch[1]){
+				points++;
 				setTimeout(function() {
+					$('#points').text("Points: " + points);
 					$('.selected ~ [data-test="'+checkValue+'"] span').text('MATCH');
 					$('.selected ~ [data-test="'+checkValue+'"]').addClass('card-match');
 					$('.selected ~ [data-test="'+checkValue+'"]').removeClass('card-value');
 					$('.col-2').css('pointer-events', 'all');
 					$('div.selected').remove();
+					
+					if(points === 18){
+						$('#points').append(" <h2> You win Yay!</h2>");
+					}
 				}, 1200);
 				
 			} else {
@@ -90,8 +99,7 @@ $(document).ready(function() {
 			}
 			turns = 0;
 			doesItMatch= [];
-			t
-			ries++;
+			tries++;
 		}
 		
 		$('#card_flips').text("Turns: " + tries);
