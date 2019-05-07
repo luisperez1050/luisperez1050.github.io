@@ -111,7 +111,7 @@ div.disabled {
 	opacity: 0.2;
 }
 div.disabled div.col-2 {pointer-events: none;}
-div.col-md-2 {padding: 10px; cursor: pointer;}
+div.col-2 {padding: 10px; cursor: pointer;}
 div.buttons {
 	display: inline-block;
 	float: right;
@@ -139,10 +139,10 @@ div.card-match span {
 div.timer, div.card-flips {
 	color: #183B3C;
 	display: inline-block;
-	font-size: 2rem;
+	font-size: 3rem;
 	margin-right: 40px;
 }
 @media screen and (max-width: 768px) {
 	.switch {float: right; margin-top: 0; position: relative;}
-	div.card-match span {font-size: 2rem;}
+	div.card-match span {font-size: 1.5rem;}
 }
