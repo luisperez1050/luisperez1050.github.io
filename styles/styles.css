@@ -110,8 +110,8 @@ div.disabled {
 	cursor: not-allowed;
 	opacity: 0.2;
 }
-div.disabled div.col-md-2 {pointer-events: none;}
-div.col-md-2 {padding: 10px; cursor: pointer;}
+div.disabled div.col-4 {pointer-events: none;}
+div.col-4 {padding: 10px; cursor: pointer;}
 div.buttons {
 	display: inline-block;
 	float: right;
@@ -142,7 +142,9 @@ div.timer, div.card-flips {
 	font-size: 3rem;
 	margin-right: 40px;
 }
-@media screen and (max-width: 768px) {
+/*buggy for other screen sizes needed to add width*/
+.row {width: 100%;}
+@media screen and (max-width: 767px) {
 	.switch {float: right; margin-top: 0; position: relative;}
 	div.card-match span {font-size: 1.5rem;}
 }
