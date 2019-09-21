@@ -49,17 +49,17 @@ $(document).ready(function() {
              }
             for(var i = 0; i < divs.length; i++) $(divs[i]).appendTo(this);
         });                    
-    }
+	}
+	// used to display timer
 	function timerIncrement() {
-		let leading_zero = '0';
 		seconds++;
-		
-		if(seconds > 9){ leading_zero = '';}
+		let leading_zero = (seconds > 9) ? '' : 0 ;
+
 		if(seconds == 60){
 			minutes++;
 			seconds = 0;
 		}
-		$('#timer').text("Timer: " + minutes + ":" + leading_zero + seconds);
+		$('#timer').text(`Timer: ${minutes}:${leading_zero}${seconds}`);
 	}
 	startLayout(cardLayout.column, cardLayout.row);
 	
