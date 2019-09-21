@@ -16,8 +16,8 @@ $(document).ready(function() {
 
 	function startLayout(column, row) {
 		$('#timer').text("Timer: 0:00");
-		$('#card_flips').text("Turns: 0");
-		$('#points').text("Points: 0");
+		$('#card_flips').text("Turns: 00");
+		$('#points').text("Points: 00");
 	  for (outer = 0; outer < column; outer++){
 		for (inner = 0; inner < row; inner++){
 		  testOne++;
@@ -53,13 +53,18 @@ $(document).ready(function() {
 	// used to display timer
 	function timerIncrement() {
 		seconds++;
-		let leading_zero = (seconds > 9) ? '' : 0 ;
+		seconds = pad(seconds);
 
 		if(seconds == 60){
 			minutes++;
-			seconds = 0;
+			minutes = pad(minutes);
+			seconds = pad(0);
 		}
-		$('#timer').text(`Timer: ${minutes}:${leading_zero}${seconds}`);
+		$('#timer').text(`Timer: ${minutes}:${seconds}`);
+	}
+	// add leading zero for UI
+	function pad(number) {
+		return (number < 10) ? ("0" + number) : number;
 	}
 	startLayout(cardLayout.column, cardLayout.row);
 	
@@ -95,8 +100,9 @@ $(document).ready(function() {
 			$('.col-4').css('pointer-events', 'none');
 			if (doesItMatch[0] === doesItMatch[1]){
 				points++;
+				points = pad(points);
 				setTimeout(function() {
-					$('#points').text("Points: " + points);
+					$('#points').text(`Points: ${points}`);
 					$('.selected ~ [data-test="'+checkValue+'"] span').text('MATCH');
 					$('.selected ~ [data-test="'+checkValue+'"]').addClass('card-match');
 					$('.selected ~ [data-test="'+checkValue+'"]').removeClass('card-value');
@@ -119,9 +125,10 @@ $(document).ready(function() {
 			turns = 0;
 			doesItMatch= [];
 			tries++;
+			tries = pad(tries);
 		}
 		
-		$('#card_flips').text("Turns: " + tries);
+		$('#card_flips').text(`Turns: ${tries}`);
 
 	})
 });
