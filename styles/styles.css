@@ -88,7 +88,9 @@ input:checked + .slider {background-color: #183B3C;}
 input:checked + .slider:before {transform: translateX(32px);}
 .slider.round {border-radius: 30px;}
 .slider.round:before {border-radius: 50%;}
+
 /*dark theme color scheme*/
+
 body.dark-theme {background-color: #101e26; color: #9CD7F7;}
 body.dark-theme h1 {color: #9CD7F7;}
 body.dark-theme pre {color: #9CD7F7;}
@@ -105,23 +107,28 @@ body.dark-theme .btn-danger:not([disabled]):not(.disabled):active:focus {color: 
 body.dark-theme .slider {background-color: #344658; border-color: #192837;}
 body.dark-theme .slider:before {background-color: #4fa1d0;}
 body.dark-theme div.timer, body.dark-theme div.card-flips {color: #9CD7F7;}
+
 /*card game css*/
+
 div.disabled {
 	cursor: not-allowed;
 	opacity: 0.2;
 }
 div.disabled div.col-4 {pointer-events: none;}
 div.col-4 {padding: 10px; cursor: pointer;}
+
 div.buttons {
-	display: inline-block;
 	float: right;
 	margin-top: 5px;
 }
+div.buttons .btn + .btn {margin-left: 8px;}
+
 div.card-container, div.card-value, div.card-match {border-radius: 5px; height: 150px;}
 div.card-container {
 	background: repeating-linear-gradient(45deg, #17A2B8, #17A2B8 3px, #4AD5EB 3px, #4AD5EB 6px);
 	border: 8px #3B444B solid;
 }
+
 div.card-value, div.card-match {
 	background-color: #F2F3F4;
 	border: 1px #000 solid;
@@ -136,14 +143,17 @@ div.card-match span {
 	font-size: 3rem;
 	margin-top: 40px;
 }
+
 div.timer, div.card-flips {
 	color: #183B3C;
 	display: inline-block;
 	font-size: 3rem;
 	margin-right: 40px;
 }
+
 /*buggy for other screen sizes needed to add width*/
 .row {width: 100%;}
+
 @media screen and (max-width: 767px) {
 	.switch {float: right; margin-top: 0; position: relative;}
 	div.card-match span {font-size: 1.5rem;}
