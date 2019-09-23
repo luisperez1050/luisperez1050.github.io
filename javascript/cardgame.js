@@ -20,7 +20,8 @@ $(document).ready(function() {
 	/*
 	* B U I L D   U I   &   E V E N T S
 	*/
-
+	const mode = document.querySelector('input[name="mode"]:checked').value;
+console.log(mode);
 	document.querySelector('#start').addEventListener('click', () => {
 		setInterval(timerIncrement, 1000);
 		document.querySelector('.row').classList.remove('disabled');
@@ -38,11 +39,11 @@ $(document).ready(function() {
 		document.querySelectorAll('.card-value').forEach(card => card.classList.add('hide'));
 	});
 
-	document.querySelector('#small_game').addEventListener('click', () => {
+	document.querySelector('#easy_mode').addEventListener('click', () => {
 		startLayout(4,4);
 	});
 
-	document.querySelector('#large_game').addEventListener('click', () => {
+	document.querySelector('#medium_mode').addEventListener('click', () => {
 		startLayout(6,6);
 	});
 	
@@ -105,9 +106,13 @@ $(document).ready(function() {
 	*/
 
 	function startLayout(column, row) {
-		$('#timer').text("Timer: 0:00");
-		$('#card_flips').text("Turns: 00");
-		$('#points').text("Points: 00");
+		const mode = document.querySelector('input[name="mode"]:checked').value;
+		document.querySelector('#timer').innerHTML = "Timer: 0:00";
+		document.querySelector('#card_flips').innerHTML = "Turns: 00";
+		document.querySelector('#points').innerHTML = "Points: 00";
+
+
+		
 		for (outer = 0; outer < column; outer++){
 			for (inner = 0; inner < row; inner++){
 				cardValue++;
