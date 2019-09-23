@@ -116,11 +116,13 @@ div.disabled {
 }
 div.disabled div.col-4 {pointer-events: none;}
 div.col-4 {padding: 10px; cursor: pointer;}
+.hide {display: none;}
 
 div.buttons {
 	float: right;
-	margin-top: 5px;
+	text-align: end;
 }
+div.buttons .card-settings {margin-top: 8px;}
 div.buttons .btn + .btn {margin-left: 8px;}
 
 div.card-container, div.card-value, div.card-match {border-radius: 5px; height: 150px;}

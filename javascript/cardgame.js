@@ -21,22 +21,33 @@ $(document).ready(function() {
 	* B U I L D   U I   &   E V E N T S
 	*/
 
-	$(document).on('click', '#start', function() {
+	document.querySelector('#start').addEventListener('click', () => {
 		setInterval(timerIncrement, 1000);
-		$('.row').removeClass('disabled');
-		$(this).prop('disabled', true);
+		document.querySelector('.row').classList.remove('disabled');
+		document.querySelector('#start').setAttribute('disabled', '');
 	});
-	$(document).on('click', '#reset', function() {
-		seconds = 0;
-		minutes = 0;
-		tries = 0;
-		points = 0;
-		$('.row').html("");
-		startLayout(cardLayout.column, cardLayout.row);
-		$('.card-value').hide();
+	document.querySelector('#game_mode').addEventListener('click', () => {
+		document.querySelector('.card-settings').classList.toggle('hide');
 	});
 
-	startLayout(cardLayout.column, cardLayout.row);
+	document.querySelector('#reset').addEventListener('click', () => {
+		seconds, minutes, tries, points = 0;
+		document.querySelector('.row').innerHTML = '';
+		startLayout(6,6);
+		//need to iterate every element
+		document.querySelectorAll('.card-value').forEach(card => card.classList.add('hide'));
+	});
+
+	document.querySelector('#small_game').addEventListener('click', () => {
+		startLayout(4,4);
+	});
+
+	document.querySelector('#large_game').addEventListener('click', () => {
+		startLayout(6,6);
+	});
+	
+	// startLayout(cardLayout.column, cardLayout.row);
+	startLayout(6,6);
 	
 
 	
@@ -97,19 +108,20 @@ $(document).ready(function() {
 		$('#timer').text("Timer: 0:00");
 		$('#card_flips').text("Turns: 00");
 		$('#points').text("Points: 00");
-	  for (outer = 0; outer < column; outer++){
-		for (inner = 0; inner < row; inner++){
-			cardValue++;
-		  if (cardValue == 6){cardValue = 0;}
-		  $('.row').append(
-			`<div class='col-4 col-md-2' id="${outer}${inner}">
-			  <div class='card-container'></div>
-			  <div class='card-value' data-test="${cardValue}"><span> ${cardValue} </span> </div>
-			</div>`
-		  );
+		for (outer = 0; outer < column; outer++){
+			for (inner = 0; inner < row; inner++){
+				cardValue++;
+				if (cardValue == 6){cardValue = 0;}
+				
+				$('.row').append(
+				`<div class='col-4 col-md-2' id="${outer}${inner}">
+					<div class='card-container'></div>
+					<div class='card-value' data-test="${cardValue}"><span> ${cardValue} </span> </div>
+				</div>`
+				);
+			}
 		}
-	  }
-	  shuffle();
+		shuffle();
 	}
 	// borrowed from JS fiddle
     function shuffle(){
@@ -120,12 +132,12 @@ $(document).ready(function() {
             var i = divs.length;
             if ( i == 0 ) return false;
             while ( --i ) {
-               var j = Math.floor( Math.random() * ( i + 1 ) );
-               var tempi = divs[i];
-               var tempj = divs[j];
-               divs[i] = tempj;
-               divs[j] = tempi;
-             }
+				var j = Math.floor( Math.random() * ( i + 1 ) );
+				var tempi = divs[i];
+				var tempj = divs[j];
+				divs[i] = tempj;
+				divs[j] = tempi;
+			}
             for(var i = 0; i < divs.length; i++) $(divs[i]).appendTo(this);
         });                    
 	}

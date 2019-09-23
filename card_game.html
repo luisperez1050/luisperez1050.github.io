@@ -32,8 +32,9 @@
             </div>
         </nav>
     </header>
+
     <main>
-      <div class="container">
+      <section class="container">
         <div class="title">
             <h1>Welcome to this Exciting Memory Game</h1>
             <label class="switch">
@@ -42,22 +43,42 @@
                 <span class="slider round"></span>
             </label>
         </div>
+
         <div class="game-items">
-			<p>Flip any card and try to match the cards.</p>
-			<div id="timer" class="timer"></div>
-			<div id="card_flips" class="card-flips"></div>
-			<div class="buttons">
-				<button id="start" class="btn btn-primary">Start Game</button>
-        <button id="settings" class="btn btn-primary">Settings</button>
-				<button id="reset" class="btn btn-danger">Reset Game</button>
-			</div>
-			<div class="points" id="points"></div>
-            <div class="row disabled">
-                <!-- where cards are created -->
+          <p>
+            Flip any card and try to match the cards. <br>
+            You can change the difficulty with the mode button.
+          </p>
+          <div id="timer" class="timer">
+
+          </div>
+          <div id="card_flips" class="card-flips">
+
+          </div>
+
+          <div class="buttons">
+            <div class="card-options">
+              <button id="start" class="btn btn-primary">Start Game</button>
+              <button id="game_mode" class="btn btn-primary">Mode</button>
+              <button id="reset" class="btn btn-danger">Reset Game</button>
             </div>
+            <div class="card-settings hide">
+              <button id="easy_mode" class="btn btn-primary">Easy</button>
+              <button id="medium_mode" class="btn btn-primary">Medium</button>
+              <button id="large_mode" class="btn btn-primary">Large</button>
+            </div>
+          </div>
+
+          <div class="points" id="points">
+
+          </div>
+          <div class="row disabled">
+              <!-- where cards are created -->
+          </div>
         </div>
-      </div>
+      </section>
     </main>
+
     <footer></footer>
     <!-- JAVASCRIPT files -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
