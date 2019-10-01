@@ -20,8 +20,13 @@ $(document).ready(function() {
 	/*
 	* B U I L D   U I   &   E V E N T S
 	*/
-	const mode = document.querySelector('input[name="mode"]:checked').value;
-console.log(mode);
+	let mode = document.querySelector('input[name="mode"]:checked').value;
+	let test = document.querySelector('input[name="mode"]').value;
+	document.querySelector('input[name="mode"]').addEventListener('click', () => {
+		console.log(test);
+	});
+console.log(test);
+
 	document.querySelector('#start').addEventListener('click', () => {
 		setInterval(timerIncrement, 1000);
 		document.querySelector('.row').classList.remove('disabled');
@@ -29,7 +34,14 @@ console.log(mode);
 	});
 	document.querySelector('#game_mode').addEventListener('click', () => {
 		document.querySelector('.card-settings').classList.toggle('hide');
+		document.querySelector('#start').setAttribute('disabled', '');
+		document.querySelector('#reset').setAttribute('disabled', '');
 	});
+	// document.querySelector('#submit_mode').addEventListener('submit', () => {
+	// 	document.querySelector('#start').removeAttribute('disabled', '');
+	// 	document.querySelector('#reset').removeAttribute('disabled', '');
+	// 	console.log('luis');
+	// });
 
 	document.querySelector('#reset').addEventListener('click', () => {
 		seconds, minutes, tries, points = 0;
