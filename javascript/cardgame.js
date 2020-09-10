@@ -21,13 +21,13 @@ $(document).ready(function() {
 	* B U I L D   U I   &   E V E N T S
 	*/
 
-	document.querySelector('#start').addEventListener('click', () => {
+	document.getElementById('start').addEventListener('click', () => {
 		setInterval(timerIncrement, 1000);
 		document.querySelector('.row').classList.remove('disabled');
-		document.querySelector('#start').setAttribute('disabled', '');
+		document.getElementById('start').setAttribute('disabled', '');
 	});
 
-	document.querySelector('#reset').addEventListener('click', () => {
+	document.getElementById('reset').addEventListener('click', () => {
 		seconds, minutes, tries, points = 0;
 		timerIncrement(true);
 		document.querySelector('.row').innerHTML = '';
@@ -37,55 +37,59 @@ $(document).ready(function() {
 	});
 	
 	startLayout(cardLayout.column, cardLayout.row);
-
 	
-	$('.card-value').hide();
-	$(document).on('click', '.col-4', function() {
-		let selectedCard = $(this).attr('id');
-		let checkValue = $(this).children('.card-value').data('test');
-		
-		doesItMatch.push(checkValue);
-		console.log(doesItMatch);
-		turns++;
-		
-		$(`#${selectedCard} .card-container`).toggle();
-		$(`#${selectedCard} .card-container`).addClass('selected');
-		$(`#${selectedCard} .card-value`).toggle();
+	document.querySelectorAll('.card-value').forEach(card => card.classList.add('hide'));
 
-		if (turns == 2) {
-			$('.col-4').css('pointer-events', 'none');
-			if (doesItMatch[0] === doesItMatch[1]){
-				points++;
-				points = pad(points);
-				setTimeout(function() {
-					$('#points').text(`Points: ${points}`);
-					$(`.selected ~ [data-test="${checkValue}"] span`).text('MATCH');
-					$(`.selected ~ [data-test="${checkValue}"]`).addClass('card-match');
-					$(`.selected ~ [data-test="${checkValue}"]`).removeClass('card-value');
-					$('.col-4').css('pointer-events', 'all');
-					$('div.selected').remove();
+	const cards = document.querySelectorAll('.col-4');
+	[...cards].forEach( card => {
+		card.addEventListener('click', () => {
+			let selectedCard = card.id;
+			let checkValue = card.querySelector('.card-value').dataset.card_value;
+			doesItMatch.push(checkValue);
+			console.log(doesItMatch);
+			turns++;
+			let test = document.getElementById(selectedCard);
+			console.log((doesItMatch[0] === doesItMatch[1]));
+			document.getElementById(selectedCard).querySelector('.card-container').classList.toggle('hide');
+			document.getElementById(selectedCard).querySelector('.card-container').classList.add('selected');
+			document.getElementById(selectedCard).querySelector('.card-value').classList.toggle('hide');
+
+			if (turns == 2) {
+				//document.querySelector('.col-4').style.cssText = "pointer-events: none";
+				[...cards].forEach( card => card.style.pointerEvents = 'none');
+				if (doesItMatch[0] === doesItMatch[1]){
+					points++;
+					points = pad(points);
+					setTimeout(function() {
+						document.getElementById('points').innerHTML = `Points: ${points}`;
+						document.querySelectorAll(`.selected ~ [data-card_value="${checkValue}"] span`).forEach( match => match.innerHTML = 'MATCH');
+						document.querySelectorAll(`.selected ~ [data-card_value="${checkValue}"]`).forEach( selected => selected.classList.add('card-match'));
+						document.querySelectorAll(`.selected ~ [data-card_value="${checkValue}"]`).forEach( selected => selected.classList.remove('card-value'));
+						[...cards].forEach( card => card.style.pointerEvents = 'all');
+						document.querySelectorAll('div.selected').forEach( selected => selected.remove());
+						
+						if(points == 18){
+							document.getElementById('points').innerHTML = " <h2> You win Yay! Reset Game to Start Over</h2>";
+						}
+					}, 1200);
 					
-					if(points === 18){
-						$('#points').append(" <h2> You win Yay! Reset Game to Start Over</h2>");
-					}
-				}, 1200);
-				
-			} else {
-				setTimeout(function() {
-					$('.card-container').show();
-					$('.card-value').hide();
-					$('.card-container').removeClass('selected');
-					$('.col-4').css('pointer-events', 'all');
-				}, 1200);
+				} else {
+					setTimeout(function() {
+						document.querySelectorAll('.card-container').forEach( container => container.classList.remove('hide'));
+						document.querySelectorAll('.card-value').forEach( val => val.classList.add('hide'));
+						document.querySelectorAll('.card-container').forEach( container => container.classList.remove('selected'));
+						[...cards].forEach( card => card.style.pointerEvents = 'all');
+					}, 1200);
+				}
+				turns = 0;
+				doesItMatch= [];
+				tries++;
+				tries = pad(tries);
 			}
-			turns = 0;
-			doesItMatch= [];
-			tries++;
-			tries = pad(tries);
-		}
-		
-		$('#card_flips').text(`Turns: ${tries}`);
+			
+			document.getElementById('card_flips').innerHTML = `Turns: ${tries}`;
 
+		});
 	});
 
 	/*
@@ -104,12 +108,11 @@ $(document).ready(function() {
 				cardValue++;
 				if (cardValue == 6){cardValue = 0;}
 				
-				$('.row').append(
+				document.querySelector('.row').innerHTML +=
 				`<div class='col-4 col-md-2' id="${outer}${inner}">
 					<div class='card-container'></div>
-					<div class='card-value' data-test="${cardValue}"><span> ${cardValue} </span> </div>
-				</div>`
-				);
+					<div class='card-value' data-card_value="${cardValue}"><span> ${cardValue} </span> </div>
+				</div>`;
 			}
 		}
 		shuffle();
@@ -149,7 +152,7 @@ $(document).ready(function() {
 			seconds = pad(0);
 		}
 
-		$('#timer').text(`Timer: ${minutes}:${seconds}`);
+		document.getElementById('timer').innerHTML = `Timer: ${minutes}:${seconds}`;
 	}
 	// add leading zero for UI
 	function pad(number) {
