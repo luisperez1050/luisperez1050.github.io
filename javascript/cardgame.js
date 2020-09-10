@@ -119,22 +119,22 @@ $(document).ready(function() {
 	// borrowed from JS fiddle
     function shuffle(){
 
-			let test = document.querySelectorAll('div.col-4');
-			let divs = [...test];
+		let test = document.querySelectorAll('div.col-4');
+		let divs = [...test];
 
-            for(let i = 0; i < divs.length; i++) document.getElementById(divs[i].id).parentNode.removeChild(document.getElementById(divs[i].id));            
-            //the fisher yates algorithm, from http://stackoverflow.com/questions/2450954/how-to-randomize-a-javascript-array
-            let i = divs.length;
-            if ( i == 0 ) return false;
-            while ( --i ) {
-				let j = Math.floor( Math.random() * ( i + 1 ) );
-				let tempi = divs[i];
-				let tempj = divs[j];
-				divs[i] = tempj;
-				divs[j] = tempi;
-			}
+		for(let i = 0; i < divs.length; i++) document.getElementById(divs[i].id).parentNode.removeChild(document.getElementById(divs[i].id));            
+		//the fisher yates algorithm, from http://stackoverflow.com/questions/2450954/how-to-randomize-a-javascript-array
+		let i = divs.length;
+		if ( i == 0 ) return false;
+		while ( --i ) {
+			let j = Math.floor( Math.random() * ( i + 1 ) );
+			let tempi = divs[i];
+			let tempj = divs[j];
+			divs[i] = tempj;
+			divs[j] = tempi;
+		}
 
-            for(let i = 0; i < divs.length; i++) document.querySelector('.row').appendChild(divs[i]);
+		for(let i = 0; i < divs.length; i++) document.querySelector('.row').appendChild(divs[i]);
                     
 	}
 	// used to display timer
