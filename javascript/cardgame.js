@@ -134,15 +134,21 @@ $(document).ready(function() {
 	}
 	// used to display timer
 	function timerIncrement(clear = false) {
-		if (clear) seconds, minutes = 0;
 		seconds++;
+
+		if (clear) {
+			seconds = 0; 
+			minutes = 0;
+		}
+		
 		seconds = pad(seconds);
-console.log(seconds);
+
 		if(seconds == 60){
 			minutes++;
 			minutes = pad(minutes);
 			seconds = pad(0);
 		}
+
 		$('#timer').text(`Timer: ${minutes}:${seconds}`);
 	}
 	// add leading zero for UI
