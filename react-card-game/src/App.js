@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import ExamplePage from './containers/ExampleContainer'
 import './App.css';
 
 function App() {
@@ -24,3 +25,5 @@ function App() {
 }
 
 export default App;
+
+ReactDOM.render(ExamplePage, document.getElementById('example-react-container'));

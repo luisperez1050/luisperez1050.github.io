@@ -32,16 +32,6 @@ console.log(test);
 		document.querySelector('.row').classList.remove('disabled');
 		document.querySelector('#start').setAttribute('disabled', '');
 	});
-	document.querySelector('#game_mode').addEventListener('click', () => {
-		document.querySelector('.card-settings').classList.toggle('hide');
-		document.querySelector('#start').setAttribute('disabled', '');
-		document.querySelector('#reset').setAttribute('disabled', '');
-	});
-	// document.querySelector('#submit_mode').addEventListener('submit', () => {
-	// 	document.querySelector('#start').removeAttribute('disabled', '');
-	// 	document.querySelector('#reset').removeAttribute('disabled', '');
-	// 	console.log('luis');
-	// });
 
 	document.querySelector('#reset').addEventListener('click', () => {
 		seconds, minutes, tries, points = 0;
