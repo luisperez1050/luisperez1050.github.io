@@ -119,8 +119,8 @@ $(document).ready(function() {
 	// borrowed from JS fiddle
     function shuffle(){
 
-		let test = document.querySelectorAll('div.col-4');
-		let divs = [...test];
+		let all_cards = document.querySelectorAll('div.col-4');
+		let divs = [...all_cards];
 
 		for(let i = 0; i < divs.length; i++) document.getElementById(divs[i].id).parentNode.removeChild(document.getElementById(divs[i].id));            
 		//the fisher yates algorithm, from http://stackoverflow.com/questions/2450954/how-to-randomize-a-javascript-array
