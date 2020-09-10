@@ -48,8 +48,7 @@ $(document).ready(function() {
 			doesItMatch.push(checkValue);
 			console.log(doesItMatch);
 			turns++;
-			let test = document.getElementById(selectedCard);
-			console.log((doesItMatch[0] === doesItMatch[1]));
+
 			document.getElementById(selectedCard).querySelector('.card-container').classList.toggle('hide');
 			document.getElementById(selectedCard).querySelector('.card-container').classList.add('selected');
 			document.getElementById(selectedCard).querySelector('.card-value').classList.toggle('hide');
@@ -119,21 +118,24 @@ $(document).ready(function() {
 	}
 	// borrowed from JS fiddle
     function shuffle(){
-        $('.row').each(function(){
-            var divs = $(this).find('div.col-4');
-            for(var i = 0; i < divs.length; i++) $(divs[i]).remove();            
+
+			let test = document.querySelectorAll('div.col-4');
+			let divs = [...test];
+
+            for(let i = 0; i < divs.length; i++) document.getElementById(divs[i].id).parentNode.removeChild(document.getElementById(divs[i].id));            
             //the fisher yates algorithm, from http://stackoverflow.com/questions/2450954/how-to-randomize-a-javascript-array
-            var i = divs.length;
+            let i = divs.length;
             if ( i == 0 ) return false;
             while ( --i ) {
-				var j = Math.floor( Math.random() * ( i + 1 ) );
-				var tempi = divs[i];
-				var tempj = divs[j];
+				let j = Math.floor( Math.random() * ( i + 1 ) );
+				let tempi = divs[i];
+				let tempj = divs[j];
 				divs[i] = tempj;
 				divs[j] = tempi;
 			}
-            for(var i = 0; i < divs.length; i++) $(divs[i]).appendTo(this);
-        });                    
+
+            for(let i = 0; i < divs.length; i++) document.querySelector('.row').appendChild(divs[i]);
+                    
 	}
 	// used to display timer
 	function timerIncrement(clear = false) {
