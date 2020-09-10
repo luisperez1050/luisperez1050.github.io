@@ -20,12 +20,6 @@ $(document).ready(function() {
 	/*
 	* B U I L D   U I   &   E V E N T S
 	*/
-	let mode = document.querySelector('input[name="mode"]:checked').value;
-	let test = document.querySelector('input[name="mode"]').value;
-	document.querySelector('input[name="mode"]').addEventListener('click', () => {
-		console.log(test);
-	});
-console.log(test);
 
 	document.querySelector('#start').addEventListener('click', () => {
 		setInterval(timerIncrement, 1000);
@@ -40,18 +34,8 @@ console.log(test);
 		//need to iterate every element
 		document.querySelectorAll('.card-value').forEach(card => card.classList.add('hide'));
 	});
-
-	document.querySelector('#easy_mode').addEventListener('click', () => {
-		startLayout(4,4);
-	});
-
-	document.querySelector('#medium_mode').addEventListener('click', () => {
-		startLayout(6,6);
-	});
 	
-	// startLayout(cardLayout.column, cardLayout.row);
-	startLayout(6,6);
-	
+	startLayout(cardLayout.column, cardLayout.row);
 
 	
 	$('.card-value').hide();
@@ -108,7 +92,6 @@ console.log(test);
 	*/
 
 	function startLayout(column, row) {
-		const mode = document.querySelector('input[name="mode"]:checked').value;
 		document.querySelector('#timer').innerHTML = "Timer: 0:00";
 		document.querySelector('#card_flips').innerHTML = "Turns: 00";
 		document.querySelector('#points').innerHTML = "Points: 00";
