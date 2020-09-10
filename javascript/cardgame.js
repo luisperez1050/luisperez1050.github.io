@@ -29,8 +29,9 @@ $(document).ready(function() {
 
 	document.querySelector('#reset').addEventListener('click', () => {
 		seconds, minutes, tries, points = 0;
+		timerIncrement(true);
 		document.querySelector('.row').innerHTML = '';
-		startLayout(6,6);
+		startLayout(cardLayout.column, cardLayout.row);
 		//need to iterate every element
 		document.querySelectorAll('.card-value').forEach(card => card.classList.add('hide'));
 	});
@@ -132,10 +133,11 @@ $(document).ready(function() {
         });                    
 	}
 	// used to display timer
-	function timerIncrement() {
+	function timerIncrement(clear = false) {
+		if (clear) seconds, minutes = 0;
 		seconds++;
 		seconds = pad(seconds);
-
+console.log(seconds);
 		if(seconds == 60){
 			minutes++;
 			minutes = pad(minutes);
