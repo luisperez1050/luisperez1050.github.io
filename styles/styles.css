@@ -2,11 +2,13 @@
 
 html {
 	overflow-y: scroll;
+}
 
+:root {
 	/* CSS Variables */
 	--text-color: #4B5A5A;
 	--theme-color: #183B3C;
-	--theme-buttom-color: #0f2a2b;
+	--theme-button-color: #0f2a2b;
 	--off-white: #F7F7F7;
 	--white: #fff;
 	--danger-red: #dc3545;
