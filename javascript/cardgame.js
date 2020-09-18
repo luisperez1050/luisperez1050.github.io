@@ -58,6 +58,7 @@ $(document).ready(function() {
 				document.getElementById(selectedCard).querySelector('.card-container').classList.toggle('hide');
 				document.getElementById(selectedCard).querySelector('.card-container').classList.add('selected');
 				document.getElementById(selectedCard).querySelector('.card-value').classList.toggle('hide');
+				document.getElementById(selectedCard).style.pointerEvents = 'none'; // disables element, fixes bug where clicking the same card incorrectly marks a match
 	
 				if (turns == 2) {
 					[...cards].forEach( card => card.style.pointerEvents = 'none');
@@ -167,7 +168,7 @@ $(document).ready(function() {
 		if(minutes == 60) {
 			document.querySelector('.row').classList.add('disabled');
 			document.querySelector('.points').classList.add('game-over');
-			document.querySelectorAll('.col-4').forEach(card => card.style.pointerEvents = 'none');8
+			document.querySelectorAll('.col-4').forEach(card => card.style.pointerEvents = 'none');
 			clearInterval(timeIntervalID);
 		}
 
