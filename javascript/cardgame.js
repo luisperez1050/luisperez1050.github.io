@@ -35,6 +35,7 @@ $(document).ready(function() {
 		startLayout(cardLayout.column, cardLayout.row);
 
 		document.querySelector('.row').classList.add('disabled');
+		document.querySelector('.points').classList.remove('game-over');
 		document.getElementById('start').removeAttribute('disabled');
 		clearInterval(timeIntervalID);
 	});
@@ -165,6 +166,7 @@ $(document).ready(function() {
 
 		if(minutes == 60) {
 			document.querySelector('.row').classList.add('disabled');
+			document.querySelector('.points').classList.add('game-over');
 			document.querySelectorAll('.col-4').forEach(card => card.style.pointerEvents = 'none');8
 			clearInterval(timeIntervalID);
 		}

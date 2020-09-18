@@ -2,10 +2,25 @@
 
 html {
 	overflow-y: scroll;
+
+	/* CSS Variables */
+	--text-color: #4B5A5A;
+	--theme-color: #183B3C;
+	--theme-buttom-color: #0f2a2b;
+	--off-white: #F7F7F7;
+	--white: #fff;
+	--danger-red: #dc3545;
+	--secondary-red: #c82333;
+
+	/* dark theme CSS Variables */
+	--dark-theme-text-color: #9CD7F7;
+	--dark-theme-color: #101e26;
+	--dark-theme-card: #061f2f;
+	--dark-theme-grey: #404954;
 }
 
 body {
-	color: #4B5A5A;
+	color: var(--text-color);
 	font-family: "Roboto",Helvetica,Arial,sans-serif;
 	margin: 10px;
 }
@@ -15,7 +30,7 @@ body {
 }
 
 h1 {
-	color: #183B3C;
+	color: var(--theme-color);
 	margin-bottom: 1rem;
 	margin-top: 1rem;
 	text-align: center;
@@ -31,7 +46,7 @@ h1 {
 }
 
 .card-body {
-	background-color: #F7F7F7;
+	background-color: var(--off-white);
 }
 
 section + section {
@@ -53,9 +68,9 @@ pre {
 
 .btn-primary {
 	background-color: transparent;
-	border-color: #183B3C;
+	border-color: var(--theme-color);
 	border-radius: 2px;
-	color: #183B3C;
+	color: var(--theme-color);
 	font-weight: bold;
 	letter-spacing: 4px;
 	text-transform: uppercase;
@@ -64,10 +79,10 @@ pre {
 .btn-primary:hover,
 .btn-primary:not([disabled]):not(.disabled):active,
 .btn-primary:focus {
-	background-color: #0f2a2b;
-	border-color: #0f2a2b;
+	background-color: var(--theme-button-color);
+	border-color: var(--theme-button-color);
 	box-shadow: 0 0 .3rem rgba(24,59,60,.9);
-	color: #fff;
+	color: var(--white);
 }
 
 .btn-primary:not([disabled]):not(.disabled):active:focus {
@@ -76,17 +91,17 @@ pre {
 
 .btn-primary:disabled {
 	background-color: transparent;
-	border-color: #183B3C;
+	border-color: var(--theme-color);
 	box-shadow: none;
-	color: #183B3C;
+	color: var(--theme-color);
 	cursor: not-allowed;
 }
 
 .btn-danger {
 	background-color: transparent;
-	border-color: #dc3545;
+	border-color: var(--danger-red);
 	border-radius: 2px;
-	color: #dc3545;
+	color: var(--danger-red);
 	font-weight: bold;
 	letter-spacing: 4px;
 	text-transform: uppercase;
@@ -95,10 +110,10 @@ pre {
 .btn-danger:hover,
 .btn-danger:not([disabled]):not(.disabled):active,
 .btn-danger:focus {
-	background-color: #c82333;
-	border-color: #c82333;
+	background-color: var(--secondary-red);
+	border-color: var(--secondary-red);
 	box-shadow: 0 0 .3rem rgba(220,53,69,.5);
-	color: #fff;
+	color: var(--white);
 }
 
 .btn-danger:not([disabled]):not(.disabled):active:focus {
@@ -134,8 +149,8 @@ pre {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: #183B3C;
-	border: 1px solid #183B3C;
+	background-color: var(--theme-color);
+	border: 1px solid var(--theme-color);
 	-webkit-transition: .4s;
 	transition: .4s;
 }
@@ -147,12 +162,12 @@ pre {
 	width: 20px;
 	left: 3px;
 	bottom: 2px;
-	background-color: #fff;
+	background-color: var(--white);
 	transition: .4s;
 }
 
 input:checked + .slider {
-	background-color: #183B3C;
+	background-color: var(--theme-color);
 }
 
 input:checked + .slider:before {
@@ -172,25 +187,25 @@ input:checked + .slider:before {
 /* #region dark theme color scheme*/
 
 body.dark-theme {
-	background-color: #101e26;
-	color: #9CD7F7;
+	background-color: var(--dark-theme-color);
+	color: var(--dark-theme-text-color);
 }
 
 body.dark-theme h1 {
-	color: #9CD7F7;
+	color: var(--dark-theme-text-color);
 }
 
 body.dark-theme pre {
-	color: #9CD7F7;
+	color: var(--dark-theme-text-color);
 }
 
 body.dark-theme .card-body {
-	background-color: #061f2f;
+	background-color: var(--dark-theme-card);
 }
 
 body.dark-theme .btn-primary {
-	background-color: #404954;
-	color: #9CD7F7;
+	background-color: var(--dark-theme-grey);
+	color: var(--dark-theme-text-color);
 }
 
 body.dark-theme .btn-primary:focus, body.dark-theme .btn-primary:active, body.dark-theme .btn-primary:hover {
@@ -198,22 +213,22 @@ body.dark-theme .btn-primary:focus, body.dark-theme .btn-primary:active, body.da
 }
 
 body.dark-theme .btn-primary:not([disabled]):not(.disabled):active {
-	background-color: #404954;
-	color: #9CD7F7;
+	background-color: var(--dark-theme-grey);
+	color: var(--dark-theme-text-color);
 }
 
 body.dark-theme .btn-danger {
-	background-color: #c82333;
-	color: #9CD7F7;
+	background-color: var(--secondary-red);
+	color: var(--dark-theme-text-color);
 }
 
 body.dark-theme .btn-danger:focus, body.dark-theme .btn-danger:active, body.dark-theme .btn-danger:hover {
-	color: #fff;
+	color: var(--white);
 	opacity: 0.8;
 }
 
 body.dark-theme .btn-danger:not([disabled]):not(.disabled):active:focus {
-	color: #fff;
+	color: var(--white);
 	opacity: 0.8;
 }
 
@@ -227,7 +242,7 @@ body.dark-theme .slider:before {
 }
 
 body.dark-theme div.timer, body.dark-theme div.card-flips {
-	color: #9CD7F7;
+	color: var(--dark-theme-text-color);
 }
 
 /* #endregion */
@@ -237,6 +252,15 @@ body.dark-theme div.timer, body.dark-theme div.card-flips {
 div.disabled {
 	cursor: not-allowed;
 	opacity: 0.2;
+}
+
+div.points.game-over::before {
+	color: var(--danger-red);
+	content: "Game Over";
+	font-size: 150px;
+	left: 25%;
+	position: fixed;
+	z-index: 2;
 }
 
 div.disabled div.col-4 {
@@ -272,7 +296,7 @@ div.card-value, div.card-match {
 	border: 1px #000 solid;
 	text-align: center;
 	font-size: 7rem;
-	color: #183B3C;
+	color: var(--theme-color);
 	line-height: 1.4;
 }
 
@@ -285,7 +309,7 @@ div.card-match span {
 }
 
 div.timer, div.card-flips {
-	color: #183B3C;
+	color: var(--theme-color);
 	display: inline-block;
 	font-size: 3rem;
 	margin-right: 40px;
