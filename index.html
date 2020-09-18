@@ -156,31 +156,6 @@
             </div>
           </div>
           <div class="card">
-            <div id="analytics_heading">
-              <button class="btn btn-block btn-primary collapsed" data-toggle="collapse" data-target="#analytics_tips" aria-expanded="false" aria-controls="analytics_tips">
-                Google Analytics
-              </button>
-            </div>
-            <div id="analytics_tips" class="collapse" aria-labelledby="analytics_heading" data-parent="#quick_guide">
-              <div class="card-body">
-                <section>
-                  <h3>Steps</h3>
-                  <ol>
-                    <li>Log into <a href="https://analytics.google.com/analytics">Google Analytics</a></li>
-                    <li>Click on Admin</li>
-                    <li>Custom Definitions</li>
-                    <li>Custom Dimensions</li>
-                    <li>New Custom Dimension</li>
-                    <li>Set Scope to Product</li>
-                  </ol>
-                  <h3>GA Code</h3>
-                  <code></code> <br>
-                  <small></small> <code></code> <small></small><br>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div class="card">
             <div id="codeception_heading">
               <button class="btn btn-block btn-primary collapsed" data-toggle="collapse" data-target="#codeception_tips" aria-expanded="false" aria-controls="codeception_tips">
                 Acceptance Testing
@@ -235,7 +210,7 @@
 
                 <section>
                   <h3>Smarty Cache</h3>
-                  <code>C:\code\web.mod_portal\application\cache\smarty\compiled</code> <small>delete everything in this folder to clear cache</small>
+                  <code>~\application\cache\smarty\compiled</code> <small>delete everything in this folder to clear cache</small>
                 </section>
 
                 <section>
@@ -298,7 +273,7 @@
                   <code>var_dump($dash_modules)</code> <small>for use in php functions</small>
                 </section>
                 <section>
-                  <h3>Toggle Error Reporting </h3>
+                  <h3>Toggle Error Reporting In CodeIgniter</h3>
                   <pre><code>
                     //httpdocs/index.php change error_reporting to zero
                     if (defined('ENVIRONMENT'))
@@ -313,36 +288,11 @@
                   </code></pre>
                 </section>
                 <section>
-                  <h3>Increase Memory Limit </h3>
+                  <h3>Increase Memory Limit In CodeIgniter</h3>
                   <small>Only use when memory exceeds limit and do not commit the change</small><br>
-                  <small>Go to core/ISS_Controller.php/build_view function</small><br>
+                  <small>Go to core/CoreController.php/build_view function</small><br>
                   <code>Line 328 if($mem_final_usage < 1000000)</code><br>
                   <small>Increase the amount in the if check above</small>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div id="deprecated_heading">
-              <button class="btn btn-block btn-primary collapsed" data-toggle="collapse" data-target="#deprecated_tips" aria-expanded="false" aria-controls="deprecated_tips">
-                Deprecated
-              </button>
-            </div>
-            <div id="deprecated_tips" class="collapse" aria-labelledby="deprecated_heading" data-parent="#quick_guide">
-              <div class="card-body">
-                <section>
-                  <h3>Vagrant Commands</h3>
-                  <code>vagrant halt</code> <br>
-                  <code>vagrant up</code> <br>
-                  <code>vagrant provision</code> <br>
-                  <code>vagrant ssh</code> <br>
-                  <code>sudo service httpd start</code> <small> then </small> <code>exit</code><br>
-                  <code>./dev_ops/dotfiles/build-gulp.sh</code> <small>fixes gulp build on vagrant setup</small>
-                </section>
-
-                <section>
-                  <h3>PHPED</h3>
-                  <code>hide under Project-> Project Properties-> node_modules</code><small>PHPED node issues solution</small>
                 </section>
               </div>
             </div>
