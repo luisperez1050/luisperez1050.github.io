@@ -283,6 +283,14 @@ div.buttons {
 
 div.buttons .btn + .btn {margin-left: 8px;}
 
+div.card-options .button-focus {
+	animation: start-focus 3s infinite;
+}
+
+@keyframes start-focus {
+	50% { transform: scale(1.1); }
+}
+
 div.card-container, div.card-value, div.card-match {
 	border-radius: 5px;
 	height: 150px;

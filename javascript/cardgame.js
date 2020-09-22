@@ -26,6 +26,7 @@ $(document).ready(function() {
 		timeIntervalID = setInterval(timerIncrement, 1000);
 		document.querySelector('.row').classList.remove('disabled');
 		document.getElementById('start').setAttribute('disabled', '');
+		document.getElementById('start').classList.remove('button-focus');
 	});
 
 	document.getElementById('reset').addEventListener('click', () => {
@@ -37,6 +38,7 @@ $(document).ready(function() {
 		document.querySelector('.row').classList.add('disabled');
 		document.querySelector('.points').classList.remove('game-over');
 		document.getElementById('start').removeAttribute('disabled');
+		document.getElementById('start').classList.add('button-focus');
 		clearInterval(timeIntervalID);
 	});
 	
