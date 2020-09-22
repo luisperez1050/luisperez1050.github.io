@@ -30,7 +30,10 @@ $(document).ready(function() {
 	});
 
 	document.getElementById('reset').addEventListener('click', () => {
-		seconds, minutes, tries, points = 0;
+		seconds = 0;
+		minutes = 0;
+		tries = pad(0);
+		points = 0;
 		timerIncrement(true);
 		document.querySelector('.row').innerHTML = ''; //clear out the cards to start over
 		startLayout(cardLayout.column, cardLayout.row);
