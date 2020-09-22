@@ -294,8 +294,10 @@ div.card-container {
 }
 
 div.card-container:hover, div.card-container:focus {
-	transform: scale(1.05);
+	transform: scale(1.03);
 }
+
+div.card-container:active { transform: scale(1.05);}
 
 div.card-value, div.card-match {
 	background-color: #F2F3F4;
